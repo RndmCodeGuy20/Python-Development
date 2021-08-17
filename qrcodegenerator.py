@@ -1,4 +1,4 @@
 import qrcode
 
-img = qrcode.make("https://ocw.mit.edu/index.htm")
-img.save("MITQR.jpg")
+img = qrcode.make("My name is Shantanu Mane! I'm a programmer!!!😁")
+img.save("AbMe.jpg")
