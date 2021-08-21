@@ -1,11 +1,9 @@
 class Student:
-    def __init__(self, name, age, std):
+    def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.std = std
 
-S1 = Student("Shantanu", 19, 13)
+S1 = Student("Shantanu", 19)
 
 print(S1.name)
 print(S1.age)
-print(S1.std)
