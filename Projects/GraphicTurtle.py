@@ -1,8 +1,12 @@
-from turtle import Turtle,Screen
+import turtle as t
 
-timmy = Turtle()
-timmy.shape("turtle")
+turt = t.Turtle()
 
-myScreen = Screen()
-myScreen.canvheight
-myScreen.exitonclick()
+def drawShape(numSides):
+    angle = 360 / numSides
+    for _ in range(numSides):
+        turt.forward(100)
+        turt.right(angle)
+
+for shapeN in range(3,11):
+    drawShape(shapeN)
