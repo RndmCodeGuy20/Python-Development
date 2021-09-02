@@ -7,9 +7,10 @@ print(img.shape)
 imgResize = cv2.resize(img, (480,480))
 print(imgResize.shape)
 
-imgCropped = img[]
+imgCropped = img[0:200, 200:500]
 
 cv2.imshow("Image Output", img)
 cv2.imshow("Resized Image Output", imgResize)
+cv2.imshow("Cropped Image Output", imgCropped)
 
 cv2.waitKey(10000)
