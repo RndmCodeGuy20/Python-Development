@@ -3,6 +3,12 @@ from tabulate import tabulate
 
 class Item:
     def __init__(self, name: str, price: float, quantity):
+
+        # -Validation of received arguments
+        assert price >= 0, f"Price {price} is not greater than or equal to zero!"
+        #! if price <= 0 AssertionError is triggered
+        assert quantity >= 0, f"Price {quantity} is not greater than or equal to zero!"
+
         self.name = name
         self.price = price
         self.quantity = quantity
