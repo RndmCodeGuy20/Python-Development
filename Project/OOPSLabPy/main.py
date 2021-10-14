@@ -1,23 +1,24 @@
 from tabulate import tabulate
 
+
 class Item:
-    def __init__(self, name, price, quantity):
+    def __init__(self, name: str, price: float, quantity):
         self.name = name
         self.price = price
         self.quantity = quantity
 
-    def calcTotPrice(self, Pr, Qu):
-        return Pr * Qu
+    def calcTotPrice(self):
+        return self.price * self.quantity
 
 
 def dispInfo(table):
-    print("\n")
     print(
-        tabulate(
+        "\n"
+        + tabulate(
             table, headers="firstrow", tablefmt="fancy_grid", showindex=range(1, 6)
         )
+        + "\n"
     )
-    print("\n")
 
 
 itPhone = Item("Phone", 15000, 9)
@@ -32,31 +33,31 @@ table = [
         itPhone.name,
         itPhone.price,
         itPhone.quantity,
-        itPhone.calcTotPrice(itPhone.price, itPhone.quantity),
+        itPhone.calcTotPrice(),
     ],
     [
         itLaptop.name,
         itLaptop.price,
         itLaptop.quantity,
-        itLaptop.calcTotPrice(itLaptop.price, itLaptop.quantity),
+        itLaptop.calcTotPrice(),
     ],
     [
         itSpeakers.name,
         itSpeakers.price,
         itSpeakers.quantity,
-        itSpeakers.calcTotPrice(itSpeakers.price, itSpeakers.quantity),
+        itSpeakers.calcTotPrice(),
     ],
     [
         itWashMach.name,
         itWashMach.price,
         itWashMach.quantity,
-        itWashMach.calcTotPrice(itWashMach.price, itWashMach.quantity),
+        itWashMach.calcTotPrice(),
     ],
     [
         itRefridge.name,
         itRefridge.price,
         itRefridge.quantity,
-        itRefridge.calcTotPrice(itRefridge.price, itRefridge.quantity),
+        itRefridge.calcTotPrice(),
     ],
 ]
 
