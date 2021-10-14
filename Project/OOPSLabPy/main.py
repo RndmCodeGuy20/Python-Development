@@ -25,7 +25,7 @@ itPhone = Item("Phone", 15000, 9)
 itLaptop = Item("Laptop", 65000, 5)
 itSpeakers = Item("Speakers", 20000, 7)
 itWashMach = Item("Washing Machine", 15000, 3)
-itRefridge = Item("Refridgerator", 40000, 4)
+itRefridge = Item("Refrigerator", 40000, 4)
 
 table = [
     ["Item", "Price", "Quantity", "Total Price"],
