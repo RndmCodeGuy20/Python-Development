@@ -1,6 +1,5 @@
 from tabulate import tabulate
 
-
 class Item:
     def __init__(self, name, price, quantity):
         self.name = name
