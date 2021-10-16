@@ -2,19 +2,31 @@ from tabulate import tabulate
 
 
 class Item:
-    def __init__(self, name: str, price: float, quantity):
+
+    # payRate = 0.8  # -Value after 20% discount!
+
+    def __init__(self, name: str, price: float, quantity, discount: float):
 
         # -Validation of received arguments
         assert price >= 0, f"Price {price} is not greater than or equal to zero!"
         #! if price <= 0 AssertionError is triggered
         assert quantity >= 0, f"Price {quantity} is not greater than or equal to zero!"
+        assert discount <= 1, f"Discount {discount*100} cannot be greater than 100%"
 
         self.name = name
         self.price = price
         self.quantity = quantity
+        self.discount = discount
 
     def calcTotPrice(self):
         return self.price * self.quantity
+
+    def applyDiscount(self):
+        self.price = self.price * self.discount
+        return self.price
+
+    def showDisc(self):
+        return (1 - self.discount) * 100
 
 
 def dispInfo(table):
@@ -27,44 +39,66 @@ def dispInfo(table):
     )
 
 
-itPhone = Item("Phone", 15000, 9)
-itLaptop = Item("Laptop", 65000, 5)
-itSpeakers = Item("Speakers", 20000, 7)
-itWashMach = Item("Washing Machine", 15000, 3)
-itRefridge = Item("Refrigerator", 40000, 4)
+itPhone = Item("Phone", 15000, 9, 0.80)
+itLaptop = Item("Laptop", 65000, 5, 0.70)
+itSpeakers = Item("Speakers", 20000, 7, 0.90)
+itWashMach = Item("Washing Machine", 15000, 3, 0.85)
+itFridge = Item("Refrigerator", 40000, 4, 0.80)
 
 table = [
-    ["Item", "Price", "Quantity", "Total Price"],
+    [
+        "Item",
+        "Price",
+        "Quantity",
+        "Total Price",
+        "Applied Discount",
+        "Discounted Price",
+    ],
     [
         itPhone.name,
         itPhone.price,
         itPhone.quantity,
         itPhone.calcTotPrice(),
+        itPhone.showDisc(),
+        itPhone.applyDiscount(),
     ],
     [
         itLaptop.name,
         itLaptop.price,
         itLaptop.quantity,
         itLaptop.calcTotPrice(),
+        itLaptop.showDisc(),
+        itLaptop.applyDiscount(),
     ],
     [
         itSpeakers.name,
         itSpeakers.price,
         itSpeakers.quantity,
         itSpeakers.calcTotPrice(),
+        itSpeakers.showDisc(),
+        itSpeakers.applyDiscount(),
     ],
     [
         itWashMach.name,
         itWashMach.price,
         itWashMach.quantity,
         itWashMach.calcTotPrice(),
+        itWashMach.showDisc(),
+        itWashMach.applyDiscount(),
     ],
     [
-        itRefridge.name,
-        itRefridge.price,
-        itRefridge.quantity,
-        itRefridge.calcTotPrice(),
+        itFridge.name,
+        itFridge.price,
+        itFridge.quantity,
+        itFridge.calcTotPrice(),
+        itFridge.showDisc(),
+        itFridge.applyDiscount(),
     ],
 ]
 
 dispInfo(table)
+
+
+# print(itPhone.__dict__) #$ All the attributes for instance level
+# print("\n")
+# print(Item.__dict__) #$ ALl the attributes for Class level.
