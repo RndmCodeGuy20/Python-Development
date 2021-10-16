@@ -29,7 +29,8 @@ class Item:
         return self.price
 
     def showDisc(self):
-        return (1 - self.discount) * 100
+        discStr = str(round((1 - self.discount) * 100))
+        return discStr + "%"
 
     def __repr__(self):
         return f"Item('{self.name}', {self.price}, {self.quantity})"
@@ -102,9 +103,9 @@ table = [
     ],
 ]
 
-# dispInfo(table)
+dispInfo(table)
 
-print(Item.all)
+# print(Item.all)
 
 # print(itPhone.__dict__) #$ All the attributes for instance level.
 # print("\n")
