@@ -4,10 +4,11 @@ from tabulate import tabulate
 class Item:
 
     # payRate = 0.8  # -Value after 20% discount!
+    all = []
 
     def __init__(self, name: str, price: float, quantity, discount: float):
 
-        # -Validation of received arguments
+        # - Validation of received arguments
         assert price >= 0, f"Price {price} is not greater than or equal to zero!"
         #! if price <= 0 AssertionError is triggered
         assert quantity >= 0, f"Price {quantity} is not greater than or equal to zero!"
@@ -18,6 +19,8 @@ class Item:
         self.quantity = quantity
         self.discount = discount
 
+        Item.all.append(self)
+
     def calcTotPrice(self):
         return self.price * self.quantity
 
@@ -27,6 +30,9 @@ class Item:
 
     def showDisc(self):
         return (1 - self.discount) * 100
+
+    def __repr__(self):
+        return f"Item('{self.name}', {self.price}, {self.quantity})"
 
 
 def dispInfo(table):
@@ -96,9 +102,10 @@ table = [
     ],
 ]
 
-dispInfo(table)
+# dispInfo(table)
 
+print(Item.all)
 
-# print(itPhone.__dict__) #$ All the attributes for instance level
+# print(itPhone.__dict__) #$ All the attributes for instance level.
 # print("\n")
 # print(Item.__dict__) #$ ALl the attributes for Class level.
