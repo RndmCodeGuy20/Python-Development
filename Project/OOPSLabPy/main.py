@@ -12,7 +12,7 @@ class Item:
         assert price >= 0, f"Price {price} is not greater than or equal to zero!"
         #! if price <= 0 AssertionError is triggered
         assert quantity >= 0, f"Price {quantity} is not greater than or equal to zero!"
-        assert discount <= 1, f"Discount {discount*100} cannot be greater than 100%"
+        assert discount < 1, f"Discount {discount*100} cannot be greater than 100%"
 
         self.name = name
         self.price = price
@@ -46,11 +46,11 @@ def dispInfo(table):
     )
 
 
-itPhone = Item("Phone", 15000, 9, 0.80)
-itLaptop = Item("Laptop", 65000, 5, 0.70)
-itSpeakers = Item("Speakers", 20000, 7, 0.90)
+itPhone = Item("Phone", 15000, 9, 0.76)
+itLaptop = Item("Laptop", 65000, 5, 0.73)
+itSpeakers = Item("Speakers", 20000, 7, 0.89)
 itWashMach = Item("Washing Machine", 15000, 3, 0.85)
-itFridge = Item("Refrigerator", 40000, 4, 0.80)
+itFridge = Item("Refrigerator", 40000, 4, 0.86)
 
 table = [
     [
