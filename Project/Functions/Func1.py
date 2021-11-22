@@ -3,6 +3,7 @@ def f(x):
     print("in f(x) : x becomes", x)
     return x
 
+
 x = 3
 z = f(x)
 print("And z becomes :", z)
