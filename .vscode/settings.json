@@ -2,5 +2,9 @@
     "python.formatting.provider": "black",
     "cSpell.ignoreWords": [
         "from"
+    ],
+    "cSpell.words": [
+        "xlabel",
+        "ylabel"
     ]
 }
