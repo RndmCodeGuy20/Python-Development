@@ -1,41 +1,36 @@
-import tkinter as tk
+# Import the tkinter module
+import tkinter
 
-simpleApp = tk.Tk()
+# Creating the GUI window.
+window = tkinter.Tk()
+window.title("Welcome to geeksforgeeks")
+window.geometry("800x100")
 
-def showText():
-    inpText = str(inpText.get())
-    rezLbl.config(state="normal")
-    rezLbl.delete("1.0", tk.END)
-    rezLbl.insert(tk.END, age)
-    rezLbl.config(state="disabled")
+# Creating our text widget.
+sample_text = tkinter.Entry(window)
+sample_text.pack()
+
+# Creating the function to set the text
+# with the help of button
+def set_text_by_button():
+
+    # Delete is going to erase anything
+    # in the range of 0 and end of file,
+    # The respective range given here
+    sample_text.delete(0, "end")
+
+    # Insert method inserts the text at
+    # specified position, Here it is the
+    # begining
+    sample_text.insert(0, "Text set by button")
 
 
-simpleApp.geometry("400x300")
-simpleApp.config(bg = 'blue')
-
-simpleApp.resizable(width=False, height=False)
-
-simpleApp.title("Simple App")
-
-
-simpleAppLabel = tk.Label(
-    simpleApp,
-    text= "Enter the text : ",
-    bg = 'blue'
-).place(x=70, y=5)
-
-inpText = tk.Entry(simpleApp, width=10).place(x=200, y=5)
-
-rezLabel = tk.Label(
-    simpleApp, 
-    text="Your input was : "
-).place(x=200,y=50)
-
-rezLabel = tk.Text(
-    simpleApp,
-    width=5,
-    height=0,
-    state="disabled",
+# Setting up the button, set_text_by_button()
+# is passed as a command
+set_up_button = tkinter.Button(
+    window, height=1, width=10, text="Set", command=set_text_by_button
 )
 
-simpleApp.mainloop()
+set_up_button.pack()
+
+window.mainloop()
